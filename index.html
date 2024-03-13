@@ -62,19 +62,48 @@
   </div> -->
 
   <div id="app" class="container">
-
+<!-- img  -->
     <div class="logo">
+
       <img src="img/logo.png" alt="logo">
+
     </div>
 
     <div class="new-task">
+
+<!-- @keyup.enter="addTodo" fa sì che la funzione addTodo venga chiamata quando l'utente preme il tasto ENTER nell'input. -->
+
       <input v-model="newTodoText" placeholder="Nuovo task" @keyup.enter="addTodo" type="text">
+
+<!-- tramite @click, la funzione verrà chiamata quando il pulsante viene cliccato. -->
+
       <button @click="addTodo">Aggiungi</button>
+
+<!-- messaggio errore  -->
       <p class="error">{{ errorMessage }}</p>
+
     </div>
 
-    
-</div>
+    <div class="task-container">
+
+      <ul>
+<!-- La direttiva v-for itera attraverso l'array todos, assegnando a ogni elemento l'oggetto todo e l'indice index        -->
+
+        <li v-for="(todo, index) in todos" :key="index">
+
+          <span :class="{ 'completed': todo.done }" @click="toggleDone(index)">
+            {{ todo.text }}
+          </span>
+
+          <i class="fa-solid fa-trash-can" @click="removeTodo(index)"></i>
+
+        </li>
+
+      </ul>
+
+    </div>
+<!-- La classe "completed" viene aggiunta dinamicamente al <span> quando todo.done è true, permettendo di sbarrare il testo dei todos completati. L'evento @click="toggleDone(index)" permette di invertire lo stato "done" del todo quando si clicca su di esso. L'icona del cestino viene utilizzata per rimuovere il todo, e l'evento @click="removeTodo(index)" chiama la funzione removeTodo quando l'icona viene cliccata. -->
+  </div>
 
 
   <script src="js/script.js"></script>

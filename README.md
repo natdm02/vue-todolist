@@ -11,4 +11,6 @@ Questa volta però ogni todo sarà un oggetto, formato da due proprietà:
 1. campo input 
 2. pulsante aggiungi
 3. paragrafo per gli errori
-4. ....
+4. lista di todos
+5. testo del todos e icona
+ 

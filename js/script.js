@@ -5,13 +5,13 @@ createApp({
         return {
             newTodoText: '',
             todos: [
-                { text: 'Task 1',
+                { text: 'palestra',
                   done: false },
-                { text: 'Task 2', 
+                { text: 'compiti', 
                   done: true },
-                { text: 'Task 3', 
+                { text: 'spesa', 
                   done: false },
-                { text: 'Task 4',
+                { text: 'ripassare lezione',
                   done: true },
             ],
             errorMessage: '',
@@ -27,5 +27,11 @@ createApp({
                 this.errorMessage = 'Il campo non può essere vuoto.';
             }
         },
-    },
+        removeTodo(index) {
+          this.todos.splice(index, 1);
+      },
+      toggleDone(index) {
+          this.todos[index].done = !this.todos[index].done;
+      },
+    },  
 }).mount('#app');
